@@ -1,0 +1,6 @@
+.bgimage{
+    background-image: url('../images/makeup5.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+}
