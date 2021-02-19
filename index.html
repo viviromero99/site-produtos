@@ -13,25 +13,36 @@
 <body>
    <nav class="navbar navbar-light bg-light navbar-expand-md fixed-top">
       <div class="container">
-         <a class="navbar-brand" href="#"><img src="assets/images/beauty_logo2.png" style="width: 120px;" alt="The Beauty Insider"></a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Botão de menu">
+         <a class="navbar-brand" href="#"><img src="assets/images/beauty_logo2.png" style="width: 120px;" 
+            alt="The Beauty Insider"></a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" 
+            aria-expanded="false" aria-label="Botão de menu">
             <span class="navbar-toggler-icon"></span>
          </button>
-         <div class="collapse navbar-collapse justify-content-between" id="menu">
+         <div class="collapse navbar-collapse" id="menu">
             <div class="navbar-nav mr-auto">
-               <a class="nav-link nav-item" href="#">Shop All</a>
-               <a class="nav-link nav-item" href="#">Skincare</a>
-               <a class="nav-link nav-item" href="#">Makeup</a>
-               <a class="nav-link nav-item" href="#">Bath&Body</a>
-               <a class="nav-link nav-item" href="#">Fragances</a>
-               <a class="nav-link nav-item" href="#">For Sale</a>
-               <a class="nav-link nav-item" href="#">About Us</a>
+               <a class="nav-item nav-link" href="#All">Shop All</a>
+               <a class="nav-item nav-link" href="#Skincare">Skincare</a>
+               <div class="dropdown">
+                  <a class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                     Makeup
+                  </a>
+                  <div class="dropdown-menu">
+                     <a class="dropdown-item" href="#">Face</a>
+                     <a class="dropdown-item" href="#">Eyes</a>
+                     <a class="dropdown-item" href="#">Lips</a>
+                     <a class="dropdown-item" href="#">Makeup Sets</a>
+                  </div>
+               </div>
+               <a class="nav-item nav-link" href="#Bath&Body">Bath&Body</a>
+               <a class="nav-item nav-link" href="#Fragrances">Fragances</a>
+               <a class="nav-item nav-link" href="#AboutUs">About Us</a>
             </div>
             <div class="navbar-nav">
-               <a class="nav-link nav-item" href="#">
+               <a class="nav-link nav-item" href="#Account">
                   <i class="fas fa-user fa-lg"></i>
                </a>
-               <a class="nav-link nav-item" href="#">
+               <a class="nav-link nav-item" href="#Cart">
                   <i class="fas fa-shopping-bag fa-lg"></i>
                </a>
             </div>
