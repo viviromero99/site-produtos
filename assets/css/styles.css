@@ -5,6 +5,10 @@
    height: 350px;
 }
 
+.scrolling-wrapper{
+	overflow-x: auto;
+}
+
 .tooltip-inner {
    max-width: 250px;
 }
