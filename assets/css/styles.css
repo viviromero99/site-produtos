@@ -1,9 +1,23 @@
-.bgimage {
-   background-image: url('../images/makeup5.jpg');
+.carouselImage1 {
+   background-image: url('../images/carousel1.jpg');
    background-size: cover;
    background-position: center;
    height: 350px;
 }
+
+.carouselImage2 {
+    background-image: url('../images/carousel2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+}
+
+.carouselImage3 {
+    background-image: url('../images/carousel3.png');
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+ }
 
 .scrolling-wrapper{
 	overflow-x: auto;
