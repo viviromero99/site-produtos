@@ -1,19 +1,19 @@
 .carouselImage1 {
-   background-image: url('../images/carousel1.jpg');
+   background-image: url('../images/other/carousel1.jpg');
    background-size: cover;
    background-position: center;
    height: 350px;
 }
 
 .carouselImage2 {
-    background-image: url('../images/carousel2.jpg');
+    background-image: url('../images/other/carousel2.jpg');
     background-size: cover;
     background-position: center;
     height: 350px;
 }
 
 .carouselImage3 {
-    background-image: url('../images/carousel3.png');
+    background-image: url('../images/other/carousel3.png');
     background-size: cover;
     background-position: center;
     height: 350px;
