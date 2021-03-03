@@ -27,8 +27,8 @@ $(function() {
       let valid_giftamounts = validaGiftAmountsFunction()
 
 
-      if(valid_sender_name && valid_sender_surname && valid_sender_email && valid_sender_gender && valid_receiver_name && valid_receiver_surname && valid_receiver_email && valid_delivery && valid_giftamounts) { alert("OK!") }
-      else {alert("Error!")}
+      if(valid_sender_name && valid_sender_surname && valid_sender_email && valid_sender_gender && valid_receiver_name && valid_receiver_surname && valid_receiver_email && valid_delivery && valid_giftamounts) { alert("Ok! Form complete.") }
+      else {alert("Error! Form incomplete.")}
    })
 })
 
