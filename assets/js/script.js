@@ -8,24 +8,25 @@ $(function() {
       let sender_name = $("#nameFrom")
       let sender_surname = $("#surnameFrom")
       let sender_email = $("#emailFrom")
-      let sender_gender = $("#genderFrom")
 
       let receiver_name = $("#nameTo")
       let receiver_surname = $("#surnameTo")
       let receiver_email = $("#emailTo")
-      let receiver_gender = $("#genderTo")
 
       let valid_sender_name = validaTextboxFunction(sender_name)
       let valid_sender_surname = validaTextboxFunction(sender_surname)
       let valid_sender_email = validaTextboxFunction(sender_email)
+      let valid_sender_gender = validaGenderFunction()
 
 
       let valid_receiver_name = validaTextboxFunction(receiver_name)
       let valid_receiver_surname = validaTextboxFunction(receiver_surname)
       let valid_receiver_email = validaTextboxFunction(receiver_email)
 
+      let valid_delivery = validaDeliveryFunction()
 
-      if(valid_sender_name && valid_sender_surname && valid_sender_email && valid_receiver_name && valid_receiver_surname && valid_receiver_email) { alert("OK!") }
+
+      if(valid_sender_name && valid_sender_surname && valid_sender_email && valid_sender_gender && valid_receiver_name && valid_receiver_surname && valid_receiver_email && valid_delivery) { alert("OK!") }
       else {alert("Error!")}
    })
 })
@@ -44,26 +45,45 @@ function validaTextboxFunction(text){
    }
 }
 
-function validaGenderFunction(radioName, genderM, genderF, genderO){
-   let botoes = $("input[name="+ radioName +"]:checked")
+function validaGenderFunction() {
+   let male = $("#gender-masc")
+   let fem = $("#gender-fem")
+   let other = $("#gender-other")
+
+   let botoes = $("input[name='gender']:checked")
    if (botoes.length === 0) {
-      genderM.addClass("is-invalid")
-      genderM.removeClass("is-valid")
-      genderF.addClass("is-invalid")
-      genderF.removeClass("is-valid")
-      genderO.addClass("is-invalid")
-      genderO.removeClass("is-valid")
-      $(radioName+"-feedback").addClass("d-block")
+      male.addClass("is-invalid")
+      male.removeClass("is-valid")
+      fem.addClass("is-invalid")
+      fem.removeClass("is-valid")
+      other.addClass("is-invalid")
+      other.removeClass("is-valid")
+      $("#gender-feedback").addClass("d-block")
       return false
    }
    else {
-      genderM.removeClass("is-invalid")
-      genderM.addClass("is-valid")
-      genderF.removeClass("is-invalid")
-      genderF.addClass("is-valid")
-      genderO.removeClass("is-invalid")
-      genderO.addClass("is-valid")
-      $(radioName+"-feedback").removeClass("d-block")
+      male.removeClass("is-invalid")
+      male.addClass("is-valid")
+      fem.removeClass("is-invalid")
+      fem.addClass("is-valid")
+      other.removeClass("is-invalid")
+      other.addClass("is-valid")
+      $("#gender-feedback").removeClass("d-block")
+      return true
+   }
+}
+
+function validaDeliveryFunction() {
+   let delivery = $("#delivery")
+
+   if(delivery.val() === '') {
+      delivery.addClass("is-invalid")
+      delivery.removeClass("is-valid")
+      return false
+   }
+   else {
+      delivery.removeClass("is-invalid")
+      delivery.addClass("is-valid")
       return true
    }
 }
