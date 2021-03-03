@@ -19,15 +19,13 @@ $(function() {
       let valid_sender_surname = validaTextboxFunction(sender_surname)
       let valid_sender_email = validaTextboxFunction(sender_email)
 
-      let valid_sender_gender = validaGenderFunction(sender_gender, $("#gender-masc-from"), $("#gender-fem-from"), $("#gender-other-from"))
 
       let valid_receiver_name = validaTextboxFunction(receiver_name)
       let valid_receiver_surname = validaTextboxFunction(receiver_surname)
       let valid_receiver_email = validaTextboxFunction(receiver_email)
 
-      let valid_receiver_gender = validaGenderFunction(receiver_gender, $("#gender-masc-to"), $("#gender-fem-to"), $("#gender-other-to"))
 
-      if(valid_sender_name && valid_sender_surname && valid_sender_email && valid_sender_gender && valid_receiver_name && valid_receiver_surname && valid_receiver_email && valid_receiver_gender) { alert("OK!") }
+      if(valid_sender_name && valid_sender_surname && valid_sender_email && valid_receiver_name && valid_receiver_surname && valid_receiver_email) { alert("OK!") }
       else {alert("Error!")}
    })
 })
