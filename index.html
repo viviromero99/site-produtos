@@ -153,38 +153,51 @@
                      <legend>Sender Information</legend>
                      <div class="form-group row mt-3 mb-3">
                         <div class="col-lg-6">
-                           <label for="name">First name</label>
-                           <input type="text" class="form-control is-valid" id="name" placeholder="First name" required>
+                           <label for="nameFrom">First name</label>
+                           <input type="text" class="form-control" id="nameFrom" name="nameFrom" placeholder="First name" required>
+                           <div class="invalid-feedback">
+                              Field must be informed.
+                           </div> 
                         </div>
                         <div class="col-lg-6">
-                           <label for="surname">Last name</label>
-                           <input type="text" class="form-control is-valid" id="surname" placeholder="Last name" required>
+                           <label for="surnameFrom">Last name</label>
+                           <input type="text" class="form-control" id="surnameFrom" name="surnameFrom" placeholder="Last name" required>
+                           <div class="invalid-feedback">
+                              Field must be informed.
+                           </div> 
                         </div>
                      </div>
                      <div class="form-group row">
                         <label class="col-form-label col-lg-2">Gender</label>
                         <div class="col-lg-10" style="padding-top: 7px;">
                            <div class="form-check form-check-inline">
-                              <input type="radio" id="gender-masc" name="gender" 
+                              <input type="radio" id="gender-fem-from" name="genderFrom" 
+                                     value="F" class="form-check-input">
+                              <label for="gender-fem-from" class="form-check-label">
+                                 Female
+                              </label>       
+                           </div>
+                           <div class="form-check form-check-inline">
+                              <input type="radio" id="gender-masc-from" name="genderFrom" 
                                      value="M" class="form-check-input">
-                              <label for="gender-masc" class="form-check-label">
+                              <label for="gender-masc-from" class="form-check-label">
                                  Male
                               </label>       
                            </div>
                            <div class="form-check form-check-inline">
-                              <input type="radio" id="gender-fem" name="gender" 
-                                     value="F" class="form-check-input">
-                              <label for="gender-fem" class="form-check-label">
-                                 Female
+                              <input type="radio" id="gender-other-from" name="genderFrom" 
+                                     value="O" class="form-check-input">
+                              <label for="gender-other-from" class="form-check-label">
+                                 Other
                               </label>       
                            </div>
                         </div>
                      </div>
                      <div class="form-group row">
-                        <label for="email" class="col-form-label col-lg-2">Email</label>
+                        <label for="emailFrom" class="col-form-label col-lg-2">Email</label>
                         <div class="col-lg-10">
-                           <input type="text" id="email" name="email"
-                                  class="form-control is-invalid" placeholder="Email">
+                           <input type="text" id="emailFrom" name="emailFrom"
+                                  class="form-control" placeholder="Email">
                            <div class="invalid-feedback">
                               Field must be informed.
                            </div>       
@@ -195,38 +208,51 @@
                      <legend>Recipient Information</legend>
                      <div class="form-group row mt-3 mb-3">
                         <div class="col-lg-6">
-                           <label for="name">First name</label>
-                           <input type="text" class="form-control is-valid" id="name" placeholder="First name" required>
+                           <label for="nameTo">First name</label>
+                           <input type="text" class="form-control" id="nameTo" name="nameTo" placeholder="First name" required>
+                           <div class="invalid-feedback">
+                              Field must be informed.
+                           </div> 
                         </div>
                         <div class="col-lg-6">
-                           <label for="surname">Last name</label>
-                           <input type="text" class="form-control is-valid" id="surname" placeholder="Last name" required>
+                           <label for="surnameTo">Last name</label>
+                           <input type="text" class="form-control" id="surnameTo" name="surnameTo" placeholder="Last name" required>
+                           <div class="invalid-feedback">
+                              Field must be informed.
+                           </div> 
                         </div>
                      </div>
                      <div class="form-group row">
                         <label class="col-form-label col-lg-2">Gender</label>
                         <div class="col-lg-10" style="padding-top: 7px;">
                            <div class="form-check form-check-inline">
-                              <input type="radio" id="gender-masc" name="gender" 
+                              <input type="radio" id="gender-fem-to" name="genderTo" 
+                                     value="F" class="form-check-input">
+                              <label for="gender-fem-to" class="form-check-label">
+                                 Female
+                              </label>       
+                           </div>
+                           <div class="form-check form-check-inline">
+                              <input type="radio" id="gender-masc-to" name="genderTo" 
                                      value="M" class="form-check-input">
-                              <label for="gender-masc" class="form-check-label">
+                              <label for="gender-masc-to" class="form-check-label">
                                  Male
                               </label>       
                            </div>
                            <div class="form-check form-check-inline">
-                              <input type="radio" id="gender-fem" name="gender" 
-                                     value="F" class="form-check-input">
-                              <label for="gender-fem" class="form-check-label">
-                                 Female
+                              <input type="radio" id="gender-other-to" name="genderTo" 
+                                     value="O" class="form-check-input">
+                              <label for="gender-other-to" class="form-check-label">
+                                 Other
                               </label>       
                            </div>
                         </div>
                      </div>
                      <div class="form-group row">
-                        <label for="email" class="col-form-label col-lg-2">Email</label>
+                        <label for="emailTo" class="col-form-label col-lg-2">Email</label>
                         <div class="col-lg-10">
-                           <input type="text" id="email" name="email"
-                                  class="form-control is-invalid" placeholder="Email">
+                           <input type="text" id="emailTo" name="emailTo"
+                                  class="form-control" placeholder="Email">
                            <div class="invalid-feedback">
                               Field must be informed.
                            </div>       
@@ -235,7 +261,8 @@
                   </fieldset>
                   <div class="form-group row">
                      <div class=" col-lg-10 text-center">
-                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+                        <button type="button" id="botao-enviar" name="botao-enviar"
+                              class="btn btn-outline-secondary" data-dismiss="modal">
                            Add to Bag
                         </button>
                      </div>
@@ -605,7 +632,7 @@
       </div>
    </div>
 
-   <script src="assets/js/jquery-3.3.1.js"></script>
+   <script src="assets/js/jquery-3.4.1.js"></script>
    <script src="assets/js/popper.js"></script>
    <script src="assets/js/bootstrap.js"></script>
    <script src="assets/js/script.js"></script>
