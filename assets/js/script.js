@@ -24,9 +24,10 @@ $(function() {
       let valid_receiver_email = validaTextboxFunction(receiver_email)
 
       let valid_delivery = validaDeliveryFunction()
+      let valid_giftamounts = validaGiftAmountsFunction()
 
 
-      if(valid_sender_name && valid_sender_surname && valid_sender_email && valid_sender_gender && valid_receiver_name && valid_receiver_surname && valid_receiver_email && valid_delivery) { alert("OK!") }
+      if(valid_sender_name && valid_sender_surname && valid_sender_email && valid_sender_gender && valid_receiver_name && valid_receiver_surname && valid_receiver_email && valid_delivery && valid_giftamounts) { alert("OK!") }
       else {alert("Error!")}
    })
 })
@@ -84,6 +85,41 @@ function validaDeliveryFunction() {
    else {
       delivery.removeClass("is-invalid")
       delivery.addClass("is-valid")
+      return true
+   }
+}
+
+function validaGiftAmountsFunction() {
+   let gc25 = $("#gc25")
+   let gc50 = $("#gc50")
+   let gc100 = $("#gc100")
+   let gc200 = $("#gc200")
+
+   let giftamounts_feedback = $("#giftamounts-feedback")
+
+   let botoes = $("input.giftamount:checked")
+   if (botoes.length === 0) {
+      gc25.addClass("is-invalid")
+      gc25.removeClass("is-valid")
+      gc50.addClass("is-invalid")
+      gc50.removeClass("is-valid")
+      gc100.addClass("is-invalid")
+      gc100.removeClass("is-valid")
+      gc200.addClass("is-invalid")
+      gc200.removeClass("is-valid")
+      giftamounts_feedback.addClass("d-block")
+      return false
+   }
+   else {
+      gc25.removeClass("is-invalid")
+      gc25.addClass("is-valid")
+      gc50.removeClass("is-invalid")
+      gc50.addClass("is-valid")
+      gc100.removeClass("is-invalid")
+      gc100.addClass("is-valid")
+      gc200.removeClass("is-invalid")
+      gc200.addClass("is-valid")
+      giftamounts_feedback.removeClass("d-block")
       return true
    }
 }
