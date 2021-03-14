@@ -151,9 +151,13 @@ function validaGiftAmountsFunction() {
 
 function mudaStatusLikeButton(button) {
    let parent;
+   let oppositeButton;
 
-   if(button.hasClass('like-button')) parent = button.parents('a.like-link')
-   else parent = button.parents('a.dislike-link')
+   if (button.hasClass('like-button')){
+      parent = button.parents('a.like-link')
+   } else {
+      parent = button.parents('a.dislike-link')
+   }
 
    const likeAttribute = parent.siblings('span.like')
    const dislikeAttribute = parent.siblings('span.dislike')
@@ -161,40 +165,38 @@ function mudaStatusLikeButton(button) {
    let like = parseInt(likeAttribute.data("like"))
    let dislike = parseInt(dislikeAttribute.data("dislike"))
 
-   let oppositeButton;
-
-   if (button.hasClass('like-button')) oppositeButton = parent.siblings('.dislike-link').children('.dislike-button')
-   else oppositeButton = parent.siblings('.like-link').children('.like-button')
-
-   // se estiver selecionado
-   if (button.hasClass('fas')) {
-       button.removeClass("fas")
-       button.addClass("far")
-       if (button.hasClass('dislike-button')){
-           if(dislike>0) dislike--
-       }
-       else{
-           if(like>0) like--
-       }
+   if (button.hasClass('like-button')){
+      oppositeButton = parent.siblings('.dislike-link').children('.dislike-button')
+   } else {
+      oppositeButton = parent.siblings('.like-link').children('.like-button')
    }
-   //se não estiver selecionado
-   else if (button.hasClass('far')) {
-       button.removeClass("far")
-       button.addClass("fas")
-       
-       if (button.hasClass('dislike-button')){
-           dislike++
-           if(like>0) like--
-       }
-       else{
-           like++
-           if(dislike>0) dislike--
-       }
-       //se o botão contrário estiver selecionado
-       if (oppositeButton.hasClass("fas")) {
-           oppositeButton.removeClass("fas")
-           oppositeButton.addClass("far")
-       }
+
+   if (button.hasClass('fas')) {
+      button.removeClass("fas")
+      button.addClass("far")
+
+      if (button.hasClass('dislike-button')){
+         if(dislike>0) { dislike-- }
+      } else{
+         if(like>0) { like-- }
+      }
+      
+   } else if (button.hasClass('far')) {
+      button.removeClass("far")
+      button.addClass("fas")
+      
+      if (button.hasClass('dislike-button')){
+         dislike++
+         if(like>0) { like-- }
+      } else{
+         like++
+         if(dislike>0) { dislike-- }
+      }
+      
+      if (oppositeButton.hasClass("fas")) {
+         oppositeButton.removeClass("fas")
+         oppositeButton.addClass("far")
+      }
    }
 
    likeAttribute.data("like", like)
