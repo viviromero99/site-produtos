@@ -30,6 +30,31 @@ $(function() {
       if(valid_sender_name && valid_sender_surname && valid_sender_email && valid_sender_gender && valid_receiver_name && valid_receiver_surname && valid_receiver_email && valid_delivery && valid_giftamounts) { alert("Ok! Form complete.") }
       else {alert("Error! Form incomplete.")}
    })
+
+   $($(".card-body .card-text")).each(function () {
+      $(this).after('<div style="display: inline"><span class="like" data-like="0"></span><a class="m-2 like-link" href="#" style="text-decoration: none"><i class="like-button far fa-thumbs-up" style="color: #FA7A9F;"></i></a><a class="m-2 dislike-link" href="#" style="text-decoration: none"><i class="dislike-button far fa-thumbs-down" style="color: #FA7A9F;"></i></a><span class="dislike" data-dislike="0"></span></div>')
+   });
+
+
+   $(".like").each(function () {
+      let like = parseInt($(this).data("like"))
+      $(this).text(like)
+   });
+
+   $(".dislike").each(function () {
+      let dislike = parseInt($(this).data("dislike"))
+      $(this).text(dislike)
+   });
+
+   $(".like-button").click(function (e) {
+      e.preventDefault();
+      mudaStatusLikeButton($(this))
+   });
+
+   $(".dislike-button").click(function (e) {
+      e.preventDefault();
+      mudaStatusLikeButton($(this))
+   });
 })
 
 function validaTextboxFunction(text){
@@ -122,4 +147,58 @@ function validaGiftAmountsFunction() {
       giftamounts_feedback.removeClass("d-block")
       return true
    }
+}
+
+function mudaStatusLikeButton(button) {
+   let parent;
+
+   if(button.hasClass('like-button')) parent = button.parents('a.like-link')
+   else parent = button.parents('a.dislike-link')
+
+   const likeAttribute = parent.siblings('span.like')
+   const dislikeAttribute = parent.siblings('span.dislike')
+
+   let like = parseInt(likeAttribute.data("like"))
+   let dislike = parseInt(dislikeAttribute.data("dislike"))
+
+   let oppositeButton;
+
+   if (button.hasClass('like-button')) oppositeButton = parent.siblings('.dislike-link').children('.dislike-button')
+   else oppositeButton = parent.siblings('.like-link').children('.like-button')
+
+   // se estiver selecionado
+   if (button.hasClass('fas')) {
+       button.removeClass("fas")
+       button.addClass("far")
+       if (button.hasClass('dislike-button')){
+           if(dislike>0) dislike--
+       }
+       else{
+           if(like>0) like--
+       }
+   }
+   //se não estiver selecionado
+   else if (button.hasClass('far')) {
+       button.removeClass("far")
+       button.addClass("fas")
+       
+       if (button.hasClass('dislike-button')){
+           dislike++
+           if(like>0) like--
+       }
+       else{
+           like++
+           if(dislike>0) dislike--
+       }
+       //se o botão contrário estiver selecionado
+       if (oppositeButton.hasClass("fas")) {
+           oppositeButton.removeClass("fas")
+           oppositeButton.addClass("far")
+       }
+   }
+
+   likeAttribute.data("like", like)
+   dislikeAttribute.data("dislike", dislike)
+   likeAttribute.text(like)
+   dislikeAttribute.text(dislike)
 }
